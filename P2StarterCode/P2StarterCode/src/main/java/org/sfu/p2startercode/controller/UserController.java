@@ -13,7 +13,7 @@ import org.sfu.p2startercode.model.UserAccount;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-import jakarta.servlet.http.HttpSession; // Added for session handling
+import jakarta.servlet.http.HttpSession; //session handling
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -42,7 +42,7 @@ public class UserController {
             return "login";
         }
 
-        // Set logged-in user in the session
+
         session.setAttribute("loggedInUser", dbUser);
 
         return "redirect:/account";
@@ -64,18 +64,16 @@ public class UserController {
         }
 
 
-
-        // Add logged-in user and user account to the model
         model.addAttribute("loggedInUser", loggedInUser);
         model.addAttribute("userAccount", loggedInUser.getUserAccount());
 
-        return "account"; // Return the Thymeleaf template name
+        return "account";
     }
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.invalidate(); // Invalidate the session to log the user out
-        return "redirect:/loginBank"; // Redirect to the login page
+        session.invalidate();
+        return "redirect:/loginBank";
     }
 
     @PostMapping("/account/transaction")
@@ -96,7 +94,7 @@ public class UserController {
             return "error";
         }
 
-        // Update balance based on transaction type
+
         if (transactionType.equals("deposit")) {
             userAccount.setBalance(userAccount.getBalance() + amount);
         } else if (transactionType.equals("withdraw")) {
@@ -110,13 +108,13 @@ public class UserController {
             return "account";
         }
 
-        // Save the updated account
+
         userRepository.save(loggedInUser);
 
-        // Update the model for the account view
+
         model.addAttribute("loggedInUser", loggedInUser);
         model.addAttribute("userAccount", userAccount);
-        return "redirect:/account"; // Redirect to reload the account page
+        return "redirect:/account";
     }
 
 
@@ -132,7 +130,7 @@ public class UserController {
         loggedInUser.setUsername(newUsername);
         loggedInUser.setPassword(newPassword);
 
-        // Save the updated user
+
         userRepository.save(loggedInUser);
 
         session.setAttribute("loggedInUser", loggedInUser);
