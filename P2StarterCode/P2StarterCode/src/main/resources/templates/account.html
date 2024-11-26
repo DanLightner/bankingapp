@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account</title>
+</head>
+<body>
+<h2>Welcome to Your Account</h2>
+
+<!-- Display User Information -->
+<p><strong>Username:</strong> <span th:text="${loggedInUser.username}"></span></p>
+
+<!-- Update User Details -->
+<form th:action="@{/account/update}" method="post">
+    <h3>Update Account Details</h3>
+    <label for="username">New Username:</label>
+    <input type="text" id="username" name="username" value="" required>
+    <br>
+    <label for="password">New Password:</label>
+    <input type="password" id="password" name="password" value="" required>
+    <br>
+    <button type="submit">Save Changes</button>
+</form>
+
+<!-- Deposit or Withdraw -->
+<form th:action="@{/account/transaction}" method="post">
+    <h3>Make a Transaction</h3>
+    <label for="transactionType">Transaction Type:</label>
+    <select id="transactionType" name="transactionType" required>
+        <option value="deposit">Deposit</option>
+        <option value="withdraw">Withdraw</option>
+    </select>
+    <br>
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" min="1" required>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+<p><strong>Account Number:</strong> <span th:text="${userAccount.accountNumber}"></span></p>
+<p><strong>Account Type:</strong> <span th:text="${userAccount.accountType}"></span></p>
+<p><strong>Balance:</strong> $<span th:text="${userAccount.balance}"></span></p>
+
+<!-- Logout Button -->
+<a href="/logout">Logout</a>
+</body>
+</html>
