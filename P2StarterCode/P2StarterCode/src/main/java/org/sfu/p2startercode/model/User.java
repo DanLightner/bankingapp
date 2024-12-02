@@ -40,7 +40,7 @@ public class User {
     @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private UserAccount userAccount;
 
-    // Getter and Setter
+    // getter and Setter
     public UserAccount getUserAccount() {
         return userAccount;
     }

@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Account</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <h2>Welcome to Your Account</h2>
 
-<!-- Display User Information -->
+<!-- display any error messages -->
+<div th:if="${error}" class="text-danger">
+    <span th:text="${error}"></span>
+</div>
+
+<!-- success message -->
+<div th:if="${success}" class="alert alert-success">
+    <span th:text="${success}"></span>
+</div>
+
+<!-- display user information -->
 <p><strong>Username:</strong> <span th:text="${loggedInUser.username}"></span></p>
 
-<!-- Update User Details -->
+<!-- update user details -->
 <form th:action="@{/account/update}" method="post">
     <h3>Update Account Details</h3>
     <label for="username">New Username:</label>
@@ -21,7 +33,7 @@
     <button type="submit">Save Changes</button>
 </form>
 
-<!-- Deposit or Withdraw -->
+<!-- deposit or withdraw -->
 <form th:action="@{/account/transaction}" method="post">
     <h3>Make a Transaction</h3>
     <label for="transactionType">Transaction Type:</label>
@@ -40,7 +52,10 @@
 <p><strong>Account Type:</strong> <span th:text="${userAccount.accountType}"></span></p>
 <p><strong>Balance:</strong> $<span th:text="${userAccount.balance}"></span></p>
 
-<!-- Logout Button -->
-<a href="/logout">Logout</a>
+<!-- logout button -->
+<form action="/logout" method="POST">
+    <button type="submit">Logout</button>
+</form>
+
 </body>
 </html>

@@ -15,12 +15,14 @@
     <form th:action="@{/loginBank}" th:object="${user}" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
+            <!-- changed the type of username to required -->
             <input required type="text" id="username" th:field="*{username}" class="form-control"/>
             <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></div>
         </div>
 
         <div class="form-group">
             <label for="password">Password:</label>
+            <!-- changed the type of password to required -->
             <input required type="password" id="password" th:field="*{password}" class="form-control"/>
             <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></div>
         </div>

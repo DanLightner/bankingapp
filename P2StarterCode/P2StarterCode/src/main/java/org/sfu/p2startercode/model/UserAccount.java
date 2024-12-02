@@ -24,7 +24,7 @@ public class UserAccount {
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User owner; // Maps to the User entity
+    private User owner;
 
     // Getters and Setters
     public Long getId() {
