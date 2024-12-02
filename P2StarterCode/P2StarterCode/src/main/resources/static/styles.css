@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8f0;
+    color: #333;
+    line-height: 1.5;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #b22222;
+}
+
+form {
+    background: #fff;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: #228b22;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e7d1e;
+}
+
+p {
+    text-align: center;
+    margin: 10px 0;
+}
+
+p strong {
+    font-weight: bold;
+}
+
+.alert-success, .text-danger {
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    transition: opacity 0.3s ease;
+    box-sizing: border-box;
+}
+
+.alert-success {
+    background-color: #006400;
+    color: white;
+    border: 1px solid #006400;
+}
+
+.text-danger {
+    background-color: #b22222;
+    color: white;
+    border: 1px solid #b22222;
+}
+
+.alert-success:hover, .text-danger:hover {
+    opacity: 0.8;
+}
+/* thought I'd add a little CSS to make it at least visually appealing, went with the christmas theme*/
+/* I should have added an alert for a successful deposit/withdrawal too, but oh well */
